@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--事件中直接写js片段-->
+  <button v-on:click="num++">增加一个</button><br/>
+  <!--右击事件，并阻止默认事件发生-->
+  <button v-on:contextmenu.prevent="num++">增加一个</button><br/>
+  <!--事件指定一个回调函数，必须是Vue实例中定义的函数-->
+  <button v-on:click="decrement">减少一个</button><br/>
+  <!--右击事件，不阻止默认事件发生-->
+  <button v-on:contextmenu="decrement($event)">减少一个</button><br/>
+  <h1>有{{num}}个女神迷恋峰哥</h1>
+    <tr v-for="(user,index) in users" v-if="user.gender=='女'">
+
+
+    </tr>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+  var app = new Vue({
+    el:"#app",
+    data:{
+      num:100
+    },
+    methods:{
+      decrement(ev){
+        this.num--;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

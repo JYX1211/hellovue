@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="app">
+<!--      <mycounter></mycounter>-->
+      <mycounter2></mycounter2>
+  </div>
+
+  <div id="app1">
+<!--      <mycounter2></mycounter2>-->
+<!--      <mycounter></mycounter>-->
+
+  </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+  Vue.component("mycounter",{
+      template: "<button v-on:click='count++'>您点了我{{count}}次</button>",
+      // template: "<button v-on:click='count++'>您点了我{{count}}次</button>",
+      template: "<botton v-on:click='count++'>您点了我{{count}}次</botton>",
+      data(){
+        return {
+          count :0
+        }
+      }
+  });
+  const mycounter2={
+      template: "<button v-on:click='count++'>您点了我{{count}}次</button>",
+      data(){
+          return{
+              count:0,
+          }
+      }
+  };
+  var app=new Vue({
+      el:"#app",
+      components:{
+          mycounter2:mycounter2
+      }
+  });
+  var app1 = new Vue({
+      el:"#app1",
+  });
+</script>
+</html>

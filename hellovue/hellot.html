@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="show = !show">点我啊</button>
+    <h1 v-if="show">
+        看到我了  if
+    </h1>
+    <h1 v-show="show">
+        看到我了  show
+    </h1>
+    <h1 v-show="show">
+        看不到我
+    </h1>
+</div>
+<div id="app1">
+    <h1>打个招呼：</h1>
+    <introduce title="大家好，我是峰哥"/>
+</div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script><!--引入vue.js-->
+<script>
+    Vue.component("introduce",{
+        template:'<h1>{{title}}</h1>',
+        props:['title']
+    })
+    var app=new Vue({
+        el:"#app1"
+    })
+    var app=new Vue({
+        el:"#app",
+        data:{
+            show:true,
+        }
+    })
+
+</script>
+</html>

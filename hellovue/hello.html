@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="name"/>
+  <input type="text" v-model="num">
+  <button v-on:click="num++">点我</button>
+  <button v-on:click="add">加</button>
+  <button v-on:click="jian">减</button>
+  <h1>
+    {{name}},非常帅！！！有{{num}}位女神为他着迷。
+  </h1>
+  v-text:<span v-text="hello"></span><br/>
+  v-html:<span v-html="hello"></span><br/>
+  <input type="checkbox" v-model="language" value="java">java<br/>
+  <input type="checkbox" v-model="language" value="javascript">javascript<br/>
+  <input type="checkbox" v-model="language" value="c++">c++<br/>
+  你选择了:{{language.join(',')}}
+</div>
+<div id="app2">
+  <h1>{{name}} ,非常帅2222222！，{{num}}岁</h1>
+</div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+  //创建vue实例
+  var app=new Vue({
+    el:"#app",
+    data:{
+      name:"峰哥",
+      num: 5,
+      hello:"<h1>1111111111</h1>",
+      language:[]   /*记录选中的语言的值*/
+    },
+    methods:{
+      add:function () {
+        this.num++;
+      },
+      jian:function () {
+        this.num--;
+      }
+    },
+    // created:function () {
+    //     this.num=100
+    // },
+    mounted:function () {
+      this.num=200;
+      console.log(this);//打印日志
+    },
+  });
+</script>
+</html>

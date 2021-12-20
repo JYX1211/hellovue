@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="hello.html">
+    <div id="app">
+    <input v-on:keyup.13="submit"/><br/>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr><th>序号</th><th>名字</th><th>年龄</th></tr>
+       <tr v-for="(user,index) in users" v-if="user.gender=='女'">
+           <td>{{index+1>9?index+1:'0'+(index+1)}}</td>
+           <td>{{user.name}}</td>
+           <td>{{user.gender}}</td>
+           <td>{{user.age}}</td>
+       </tr>
+    </table>
+        <ul>
+            <li v-for="(value,key,index) in user">
+                {{index+1}}.{{key+'---'+value}}
+            </li>
+        </ul>
+    </div>
+</form>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script><!--引入vue.js-->
+<script>
+    var app = new Vue({
+        el:"#app", // el即element，该vue实例要渲染的页面元素  getElementById
+        data: {// 渲染页面需要的数据
+
+            users: [
+                {name: '柳岩', gender: '女', age: 21},
+                {name: '峰哥', gender: '男', age: 18},
+                {name: '范冰冰', gender: '女', age: 24},
+                {name: '刘亦菲', gender: '女', age: 18},
+                {name: '古力娜扎', gender: '女', age: 25},
+                {name: '柳岩', gender: '女', age: 21},
+                {name: '峰哥', gender: '男', age: 18},
+                {name: '范冰冰', gender: '女', age: 24},
+                {name: '刘亦菲', gender: '女', age: 18},
+                {name: '古力娜扎', gender: '女', age: 25},
+                {name: '柳岩', gender: '女', age: 21},
+                {name: '峰哥', gender: '男', age: 18},
+                {name: '范冰冰', gender: '女', age: 24},
+                {name: '刘亦菲', gender: '女', age: 18},
+                {name: '古力娜扎', gender: '女', age: 25}
+            ],
+            user:
+                {name: '柳岩',gender:'女',age:21}
+        }
+
+        });
+</script>
+</html>
